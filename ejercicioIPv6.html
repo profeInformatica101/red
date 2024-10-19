@@ -92,8 +92,316 @@
         <h4 class="mt-4">Explicación General:</h4>
         <p>La opción <strong>g)</strong> es incorrecta porque no tiene el número completo de bloques que se necesitan para formar una dirección IPv6 válida. Al usar <code>::</code>, se deben rellenar los ceros restantes, pero aún así la dirección debe tener 128 bits en total. En esta dirección faltan al menos 16 bits (un bloque) para que sea válida.</p>
         
+
+        <h1 class="mb-4">Ejercicio 4 - IPv6</h1>
+
+        <p>Identifique en la siguiente dirección IPv6:</p>
+        <ul>
+            <li>Prefijo de enrutamiento Global.</li>
+            <li>Identificador de Subred.</li>
+            <li>Identificador del Host.</li>
+        </ul>
+
+        <p class="code-block">2001:CB00:1000:BA23:0000:0000:A00:AAAA</p>
+
+        <h4 class="mt-4">Solución:</h4>
+
+        <ul>
+            <li><strong>Prefijo de enrutamiento global:</strong> <span class="code-block">2001:CB00:1000</span></li>
+            <li><strong>Identificador de subred:</strong> <span class="code-block">BA23</span></li>
+            <li><strong>Identificador del host:</strong> <span class="code-block">0000:0000:A00:AAAA</span></li>
+        </ul>
+
     </div>
 
+    <div class="container">
+        <h1 class="mb-4">Ejercicio: Asignación de Direcciones IPv6 y Subnetting</h1>
+
+        <h2>Enunciado:</h2>
+        <p>
+            Dado el siguiente esquema de red, asigna direcciones de red e IPs para el <strong>Router 1 (R1)</strong> en sus distintas interfaces,
+            realizando <strong>subnetting</strong> con direcciones IPv6. Tomaremos como base el prefijo de enrutamiento global 
+            <span class="code-block">2001:0DB8:ACAD::/48</span>.
+        </p>
+
+        <h2>Paso 1: ¿Qué es IPv6 y por qué es diferente a IPv4?</h2>
+        <p>
+            <strong>IPv6</strong> es la versión más reciente del protocolo de Internet (IP) y está diseñado para reemplazar <strong>IPv4</strong> debido a la
+            limitación en la cantidad de direcciones disponibles en IPv4. IPv6 usa direcciones de <strong>128 bits</strong>, lo que proporciona un espacio de 
+            direcciones mucho mayor comparado con los 32 bits de IPv4. Las direcciones IPv6 se representan en <strong>hexadecimal</strong> y están 
+            divididas en <strong>8 grupos</strong> de 16 bits, separados por dos puntos <code>:</code>. Ejemplo: <span class="code-block">2001:0DB8:ACAD::</span>.
+        </p>
+
+        <h2>Paso 2: ¿Qué es el subnetting en IPv6?</h2>
+        <p>
+            El <strong>subnetting</strong> es el proceso de dividir una red en subredes más pequeñas. En este caso, se nos proporciona una red principal con 
+            el prefijo <span class="code-block">2001:0DB8:ACAD::/48</span>, lo que significa que los primeros 48 bits están reservados para la red global. 
+            Con 128 bits totales en una dirección IPv6, nos quedan <strong>80 bits</strong> para dividir entre subredes e identificadores de hosts.
+        </p>
+
+        <h2>Paso 3: ¿Cuántas subredes se pueden crear?</h2>
+        <p>
+            Con <strong>16 bits</strong> disponibles para hacer subnetting (es decir, dividir la red en partes más pequeñas), podemos crear hasta 
+            <strong>65.536 subredes</strong> diferentes (2<sup>16</sup> = 65.536).
+        </p>
+
+        <h2>Paso 4: Asignación de Subredes e IPs</h2>
+        <p>
+            Para este ejercicio, asignaremos <strong>5 subredes</strong> a las distintas interfaces del <strong>Router 1 (R1)</strong> y a los dispositivos conectados.
+            Aquí está el desglose de cómo lo haremos:
+        </p>
+
+        <ul>
+            <li>
+                <strong>Subred 1</strong>: Para la interfaz G0/0 del R1 y el PC1.
+                <ul>
+                    <li>Subred: <span class="code-block">2001:0DB8:ACAD:0001::/64</span></li>
+                    <li>IP de la interfaz del router (R1): <span class="code-block">2001:0DB8:ACAD:0001::1/64</span></li>
+                    <li>IP del PC1: <span class="code-block">2001:0DB8:ACAD:0001::10/64</span></li>
+                </ul>
+            </li>
+
+            <li>
+                <strong>Subred 2</strong>: Para la interfaz G0/1 del R1 y el PC2.
+                <ul>
+                    <li>Subred: <span class="code-block">2001:0DB8:ACAD:0002::/64</span></li>
+                    <li>IP de la interfaz del router (R1): <span class="code-block">2001:0DB8:ACAD:0002::1/64</span></li>
+                    <li>IP del PC2: <span class="code-block">2001:0DB8:ACAD:0002::10/64</span></li>
+                </ul>
+            </li>
+
+            <li>
+                <strong>Subred 3</strong>: Para la interfaz G0/0 del R1 y el PC3.
+                <ul>
+                    <li>Subred: <span class="code-block">2001:0DB8:ACAD:0003::/64</span></li>
+                    <li>IP de la interfaz del router (R1): <span class="code-block">2001:0DB8:ACAD:0003::1/64</span></li>
+                    <li>IP del PC3: <span class="code-block">2001:0DB8:ACAD:0003::10/64</span></li>
+                </ul>
+            </li>
+
+            <li>
+                <strong>Subred 4</strong>: Para la interfaz G0/1 del R1 y el PC4.
+                <ul>
+                    <li>Subred: <span class="code-block">2001:0DB8:ACAD:0004::/64</span></li>
+                    <li>IP de la interfaz del router (R1): <span class="code-block">2001:0DB8:ACAD:0004::1/64</span></li>
+                    <li>IP del PC4: <span class="code-block">2001:0DB8:ACAD:0004::10/64</span></li>
+                </ul>
+            </li>
+
+            <li>
+                <strong>Subred 5</strong>: Para la conexión entre R1 y R2 (interfaz serial).
+                <ul>
+                    <li>Subred: <span class="code-block">2001:0DB8:ACAD:0005::/64</span></li>
+                    <li>IP de la interfaz del router (R1): <span class="code-block">2001:0DB8:ACAD:0005::1/64</span></li>
+                    <li>IP de la interfaz del router (R2): <span class="code-block">2001:0DB8:ACAD:0005::2/64</span></li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>Paso 5: ¿Cómo queda la asignación final?</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Interfaz</th>
+                    <th>Subred IPv6</th>
+                    <th>IP de R1</th>
+                    <th>IP del dispositivo conectado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>G0/0 (PC1)</td>
+                    <td><span class="code-block">2001:0DB8:ACAD:0001::/64</span></td>
+                    <td><span class="code-block">2001:0DB8:ACAD:0001::1/64</span></td>
+                    <td><span class="code-block">2001:0DB8:ACAD:0001::10/64</span></td>
+                </tr>
+                <tr>
+                    <td>G0/1 (PC2)</td>
+                    <td><span class="code-block">2001:0DB8:ACAD:0002::/64</span></td>
+                    <td><span class="code-block">2001:0DB8:ACAD:0002::1/64</span></td>
+                    <td><span class="code-block">2001:0DB8:ACAD:0002::10/64</span></td>
+                </tr>
+                <tr>
+                    <td>G0/0 (PC3)</td>
+                    <td><span class="code-block">2001:0DB8:ACAD:0003::/64</span></td>
+                    <td><span class="code-block">2001:0DB8:ACAD:0003::1/64</span></td>
+                    <td><span class="code-block">2001:0DB8:ACAD:0003::10/64</span></td>
+                </tr>
+                <tr>
+                    <td>G0/1 (PC4)</td>
+                    <td><span class="code-block">2001:0DB8:ACAD:0004::/64</span></td>
+                    <td><span class="code-block">2001:0DB8:ACAD:0004::1/64</span></td>
+                    <td><span class="code-block">2001:0DB8:ACAD:0004::10/64</span></td>
+                </tr>
+                <tr>
+                    <td>S0/0/0 (R1-R2)</td>
+                    <td><span class="code-block">2001:0DB8:ACAD:0005::/64</span></td>
+                    <td><span class="code-block">2001:0DB8:ACAD:0005::1/64</span></td>
+                    <td><span class="code-block">2001:0DB8:ACAD:0005::2/64</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Paso 6: ¿Por qué se utilizan subredes?</h2>
+        <ul>
+            <li><strong>Organización y segmentación:</strong> El uso de subredes permite dividir grandes redes en segmentos más pequeños, lo que facilita la administración y reduce el tráfico innecesario.</li>
+            <li><strong>Seguridad:</strong> Al segmentar la red, se puede aplicar más fácilmente control de acceso y medidas de seguridad por subred.</li>
+            <li><strong>Escalabilidad:</strong> IPv6 ofrece un espacio de direcciones mucho mayor que IPv4, lo que permite crear miles de subredes sin necesidad de re-diseñar la red.</li>
+        </ul>
+
+        <h2>Conclusión</h2>
+        <p>
+            Hemos utilizado <strong>5 subredes</strong> del espacio de direcciones proporcionado (<strong>/48</strong>), lo que nos deja 
+            <strong>65.531 subredes</strong> disponibles para futuras expansiones. Esta capacidad de <strong>IPv6</strong> permite una escalabilidad 
+            y flexibilidad mucho mayor en comparación con IPv4. Cada subred ha sido asignada a diferentes interfaces y dispositivos en el esquema de red, 
+            respetando el estándar de <strong>64 bits</strong> para cada subred IPv6.
+        </p>
+    </div>
+
+    <div class="container mt-4">
+        <h2>Ejercicio 10</h2>
+        <p><strong>Pregunta:</strong> Convertir la dirección <code>192.168.20.112</code> en una dirección mapeada IPv6.</p>
+    
+        <h4>Solución:</h4>
+        <p>Para convertir una dirección IPv4 en una dirección IPv6 mapeada, seguimos los siguientes pasos:</p>
+    
+        <ol>
+            <li>Convertir cada octeto de la dirección IPv4 <code>192.168.20.112</code> en su forma hexadecimal:
+                <ul>
+                    <li><strong>192</strong> → <code>C0</code></li>
+                    <li><strong>168</strong> → <code>A8</code></li>
+                    <li><strong>20</strong> → <code>14</code></li>
+                    <li><strong>112</strong> → <code>70</code></li>
+                </ul>
+            </li>
+    
+            <li>Combinar los valores hexadecimales: <code>C0A8:1470</code></li>
+    
+            <li>Añadir el prefijo <code>::ffff:</code> para formar la dirección IPv6 mapeada:</li>
+        </ol>
+    
+        <p><strong>Dirección IPv6 mapeada:</strong> <code>::ffff:c0a8:1470</code></p>
+    </div>
+    <div class="container mt-4">
+        <h2>Ejercicio 11</h2>
+        <p><strong>Pregunta:</strong> ¿Qué dirección es asignada por defecto cuando no tenemos un servidor DHCP en IPv6, suponiendo que la dirección MAC del equipo es <code>52:74:f2:b1:a8:7f</code>?</p>
+    
+        <h4>Solución:</h4>
+        <p>
+            Cuando no se utiliza un servidor DHCP en IPv6, se genera una <strong>dirección link-local</strong> utilizando la dirección MAC del equipo, siguiendo la convención EUI-64. A continuación, los pasos para obtener la dirección:
+        </p>
+    
+        <ol>
+            <li><strong>Dividir la dirección MAC</strong> en dos partes de 24 bits:
+                <ul>
+                    <li>MAC: <code>52:74:f2:b1:a8:7f</code></li>
+                    <li>Primera parte: <code>52:74:f2</code></li>
+                    <li>Segunda parte: <code>b1:a8:7f</code></li>
+                </ul>
+            </li>
+    
+            <li><strong>Insertar <code>ff:fe</code> en el medio:</strong>
+                <ul>
+                    <li>Resultado: <code>52:74:f2:ff:fe:b1:a8:7f</code></li>
+                </ul>
+            </li>
+    
+            <li><strong>Invertir el bit 7</strong> (bit U/L):
+                <ul>
+                    <li>La primera parte <code>52</code> en binario es <code>01010010</code>.</li>
+                    <li>Al invertir el bit 7, el valor cambia a <code>01010000</code>, lo que convierte <code>52</code> en <code>50</code>.</li>
+                    <li>Nuevo valor: <code>50:74:f2:ff:fe:b1:a8:7f</code>.</li>
+                </ul>
+            </li>
+    
+            <li><strong>Añadir el prefijo <code>fe80::/64</code></strong> para obtener la dirección link-local completa:
+                <ul>
+                    <li><strong>Dirección IPv6 generada:</strong> <code>fe80::5074:f2ff:feb1:a87f/64</code></li>
+                </ul>
+            </li>
+        </ol>
+    
+        <p>
+            <strong>Respuesta final:</strong> La dirección IPv6 que se asigna por defecto es <code>fe80::5074:f2ff:feb1:a87f/64</code>.
+        </p>
+    </div>
+
+    <div class="container mt-4">
+        <h2>Ejercicio 9</h2>
+        <p><strong>Pregunta:</strong> ¿Cuál de las siguientes direcciones es la abreviatura más corta para la dirección IP <code>3FFE:1044:0000:0000:00AB:0000:0000:0057</code>?</p>
+    
+        <h4>Opciones:</h4>
+        <ul>
+            <li>a) 3FFE:1044::AB::57</li>
+            <li>b) 3FFE:1044::00AB:0057</li>
+            <li>c) 3FFE:1044::AB::57</li>
+            <li>d) 3FFE:1044::AB:0:57</li>
+        </ul>
+    
+        <h4>Solución:</h4>
+        <p>
+            Para abreviar una dirección IPv6, debemos seguir una serie de reglas que nos permiten simplificar la escritura de las direcciones sin perder información. La dirección original que se nos da es:
+        </p>
+    
+        <p><code>3FFE:1044:0000:0000:00AB:0000:0000:0057</code></p>
+    
+        <h5>Paso 1: Omitir ceros a la izquierda</h5>
+        <p>
+            En IPv6, cualquier grupo de ceros a la izquierda de un segmento de la dirección puede omitirse. Aplicamos esto a los siguientes segmentos:
+        </p>
+        <ul>
+            <li><code>00AB</code> se convierte en <code>AB</code></li>
+            <li><code>0057</code> se convierte en <code>57</code></li>
+        </ul>
+        <p>Por lo tanto, la dirección se convierte en:</p>
+        <p><code>3FFE:1044:0000:0000:AB:0000:0000:57</code></p>
+    
+        <h5>Paso 2: Usar <code>::</code> para agrupar ceros consecutivos</h5>
+        <p>
+            En IPv6, podemos usar <code>::</code> para reemplazar un grupo consecutivo de segmentos que contienen solo ceros. Este mecanismo solo puede ser utilizado una vez en la dirección. En este caso, tenemos dos grupos consecutivos de ceros:
+        </p>
+        <ul>
+            <li><code>0000:0000</code> aparece dos veces seguidas, y podemos reemplazarlos con <code>::</code>.</li>
+        </ul>
+        <p>
+            Después de aplicar la abreviatura, obtenemos la siguiente dirección:
+        </p>
+        <p><code>3FFE:1044::AB:0000:57</code></p>
+    
+        <h5>Paso 3: Revisar si podemos aplicar más abreviaciones</h5>
+        <p>
+            Ya hemos utilizado <code>::</code> para los ceros consecutivos. Sin embargo, aún tenemos un grupo de ceros adicionales entre <code>AB</code> y <code>57</code>:
+        </p>
+        <ul>
+            <li>El segmento <code>0000</code> que aparece antes de <code>57</code> puede ser escrito como <code>0</code>.</li>
+        </ul>
+        <p>
+            Entonces, la dirección completa y abreviada sería:
+        </p>
+        <p><strong><code>3FFE:1044::AB:0:57</code></strong></p>
+    
+        <h5>Paso 4: Verificar las opciones dadas</h5>
+        <p>
+            Ahora que tenemos la abreviatura correcta, comparamos con las opciones propuestas:
+        </p>
+        <ul>
+            <li>a) <code>3FFE:1044::AB::57</code> → Incorrecto. No se pueden usar dos <code>::</code> en una dirección IPv6.</li>
+            <li>b) <code>3FFE:1044::00AB:0057</code> → Incorrecto. <code>00AB</code> y <code>0057</code> no han sido abreviados correctamente.</li>
+            <li>c) <code>3FFE:1044::AB::57</code> → Incorrecto. Nuevamente, se han utilizado dos <code>::</code>, lo cual no es permitido.</li>
+            <li>d) <code>3FFE:1044::AB:0:57</code> → <strong>Correcto</strong>. Esta es la abreviatura más corta y válida.</li>
+        </ul>
+    
+        <h4>Conclusión:</h4>
+        <p>
+            La abreviatura más corta para la dirección IP <code>3FFE:1044:0000:0000:00AB:0000:0000:0057</code> es la opción <strong>d) 3FFE:1044::AB:0:57</strong>. Esto se debe a que:
+        </p>
+        <ol>
+            <li>Omitimos los ceros a la izquierda en <code>00AB</code> y <code>0057</code>.</li>
+            <li>Reemplazamos los grupos consecutivos de ceros <code>0000:0000</code> con <code>::</code>.</li>
+            <li>No se pueden utilizar dos <code>::</code> en la misma dirección.</li>
+            <li>Se puede abreviar un segmento de <code>0000</code> a simplemente <code>0</code>.</li>
+        </ol>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
