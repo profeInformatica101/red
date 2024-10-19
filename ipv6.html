@@ -113,7 +113,32 @@
                 <li><strong>2002::/16</strong> – Direcciones 6to4</li>
                 <li><strong>2001::/32</strong> – Direcciones Teredo</li>
             </ul>
+
+
+            <div class="content-section">
+                <h2>Diferencias entre direcciones globales y locales</h2>
+                <p>No todas las direcciones IPv6 son globales. Las direcciones se clasifican en diferentes tipos, cada una con su propio propósito:</p>
+                <ul>
+                    <li><strong>Link-local (`fe80::/10`):</strong> Estas direcciones se utilizan dentro del enlace local y no se enrutan más allá de la red local. No son globales y solo se emplean para la comunicación dentro del mismo segmento de red.</li>
+                    <li><strong>Global unicast (`2000::/3`):</strong> Estas direcciones son globales y pueden ser enrutadas a través de Internet, lo que las hace accesibles desde cualquier parte del mundo.</li>
+                    <li><strong>Unique local (`fc00::/7`):</strong> Estas direcciones son similares a las direcciones privadas en IPv4. Se usan dentro de redes privadas y no se enrutan en Internet.</li>
+                </ul>
+            </div>
+    
+            <div class="content-section">
+                <h2>Riesgos Asociados a las Direcciones IPv6 Globales</h2>
+                <p>Si todas las direcciones IPv6 fueran globales, existirían varios riesgos y consecuencias:</p>
+                <ul>
+                    <li><strong>Exposición a Internet:</strong> Los dispositivos con direcciones globales IPv6 estarían accesibles desde cualquier punto de Internet, lo que aumenta el riesgo de ataques externos.</li>
+                    <li><strong>Mayor superficie de ataque:</strong> Más dispositivos expuestos incrementan el riesgo de ataques, como escaneos de puertos y exploits.</li>
+                    <li><strong>Necesidad de firewall:</strong> Es esencial contar con un firewall adecuado para proteger los dispositivos con direcciones globales y evitar accesos no autorizados.</li>
+                    <li><strong>Difícil anonimato:</strong> La estructura de las direcciones IPv6 puede exponer detalles como la dirección MAC, lo que podría hacer más fácil rastrear un dispositivo en múltiples redes.</li>
+                    <li><strong>Fugas de datos:</strong> Sin medidas de seguridad adecuadas, los dispositivos con direcciones globales pueden exponer datos sensibles, archivos y configuraciones a actores maliciosos.</li>
+                </ul>
+            </div>
         </div>
+
+        
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
