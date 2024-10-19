@@ -1,0 +1,90 @@
+
+# IPv6 Address Patterns (Patrones de Direcciones IPv6)
+
+In IPv6, there are several address patterns or prefixes that serve different purposes within the protocol. Below are the main types of IPv6 addresses and their associated prefixes:
+(En IPv6, existen varios patrones de direcciones o prefijos que sirven para diferentes propósitos dentro del protocolo. A continuación, se enumeran los principales tipos de direcciones IPv6 y sus prefijos asociados:)
+
+## 1. Global Unicast Addresses (GUA) (Direcciones Unicast Globales)
+- **Prefix (Prefijo):** `2000::/3`
+- **Range (Rango):** From `2000::` to `3FFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF`.
+- **Description (Descripción):** These are globally assigned addresses, meaning they can be routed over the Internet. They are the equivalent of public addresses in IPv4.
+(Estas son direcciones asignadas globalmente, lo que significa que pueden enrutarse a través de Internet. Son el equivalente a las direcciones públicas en IPv4.)
+- **Example (Ejemplo):** `2001:0db8::1`
+
+## 2. Unique Local Addresses (ULA) (Direcciones Unicast Locales)
+- **Prefix (Prefijo):** `FC00::/7`
+- **Subdivision (Subdivisión):**
+  - `FC00::/8` (reserved for future use) (reservado para uso futuro).
+  - `FD00::/8` (used for private networks) (usado para redes privadas).
+- **Description (Descripción):** These addresses are meant for use within private networks and should not be routed over the Internet. They are similar to private addresses in IPv4 (e.g., 192.168.x.x or 10.x.x.x).
+(Estas direcciones están destinadas para su uso dentro de redes privadas y no deben enrutarse en Internet. Son similares a las direcciones privadas en IPv4 (por ejemplo, 192.168.x.x o 10.x.x.x).)
+- **Example (Ejemplo):** `FD00:1234::1`
+
+## 3. Multicast Addresses (Direcciones Multicast)
+- **Prefix (Prefijo):** `FF00::/8`
+- **Description (Descripción):** These addresses are used for sending packets to multiple destinations at once, such as in live video streaming or service discovery protocols.
+(Estas direcciones se usan para enviar paquetes a múltiples destinos al mismo tiempo, como en la transmisión de video en vivo o en protocolos de descubrimiento de servicios.)
+- **Example (Ejemplo):** `FF02::1` (all nodes in the local link) (todos los nodos en el enlace local).
+
+### Multicast Subgroups (Subgrupos de Multicast):
+- `FF01::/16` – node-local scope (alcance local de nodo).
+- `FF02::/16` – link-local scope (alcance local de enlace).
+- `FF05::/16` – site-local scope (alcance local de sitio).
+- `FF08::/16` – organization-local scope (alcance local de organización).
+- `FF0E::/16` – global scope (alcance global).
+
+## 4. Anycast Addresses (Direcciones Anycast)
+- **No specific prefix (Sin prefijo específico):** Anycast addresses are unicast addresses assigned to multiple interfaces at different locations. Packets sent to an anycast address are delivered to the nearest interface in terms of routing distance.
+(Las direcciones Anycast son direcciones unicast asignadas a múltiples interfaces en diferentes ubicaciones. Los paquetes enviados a una dirección anycast se entregan a la interfaz más cercana en términos de distancia de enrutamiento.)
+
+## 5. Loopback Address (Dirección de Loopback)
+- **Prefix (Prefijo):** `::1/128`
+- **Description (Descripción):** The loopback address is used to refer to the local device (similar to 127.0.0.1 in IPv4).
+(La dirección de loopback se usa para referirse al dispositivo local (similar a 127.0.0.1 en IPv4).)
+- **Example (Ejemplo):** `::1`
+
+## 6. Unspecified Address (Dirección No Especificada)
+- **Prefix (Prefijo):** `::/128`
+- **Description (Descripción):** This address is used as the source when a node does not yet know its own address (e.g., during auto-configuration).
+(Esta dirección se utiliza como origen cuando un nodo aún no conoce su propia dirección (por ejemplo, durante la autoconfiguración).)
+- **Example (Ejemplo):** `::`
+
+## 7. IPv4-Mapped IPv6 Addresses (Direcciones IPv6 Mapeadas a IPv4)
+- **Prefix (Prefijo):** `::FFFF:0:0/96`
+- **Description (Descripción):** These addresses are used to represent an IPv4 address within an IPv6 address, enabling interoperability between IPv4 and IPv6.
+(Estas direcciones se usan para representar una dirección IPv4 dentro de una dirección IPv6, lo que permite la interoperabilidad entre IPv4 e IPv6.)
+- **Example (Ejemplo):** `::FFFF:192.168.1.1`
+
+## 8. Documentation Addresses (Direcciones para Documentación)
+- **Prefix (Prefijo):** `2001:0DB8::/32`
+- **Description (Descripción):** This block is reserved for use in examples and technical documentation, not for real-world networks.
+(Este bloque está reservado para su uso en ejemplos y documentación técnica, no para redes reales.)
+- **Example (Ejemplo):** `2001:0DB8::1`
+
+## 9. 6to4 Addresses (Direcciones 6to4)
+- **Prefix (Prefijo):** `2002::/16`
+- **Description (Descripción):** These addresses are used in the 6to4 transition mechanism, allowing IPv4 hosts to communicate over IPv6 networks.
+(Estas direcciones se utilizan en el mecanismo de transición 6to4, lo que permite a los hosts IPv4 comunicarse a través de redes IPv6.)
+- **Example (Ejemplo):** `2002:c0a8:0101::1` (represents IPv4 address `192.168.1.1`) (representa la dirección IPv4 `192.168.1.1`).
+
+## 10. Teredo Addresses (Direcciones Teredo)
+- **Prefix (Prefijo):** `2001::/32`
+- **Description (Descripción):** Used by the Teredo tunneling protocol, which allows IPv6 communication through an IPv4 network with NAT.
+(Utilizadas por el protocolo de túnel Teredo, que permite la comunicación IPv6 a través de una red IPv4 con NAT.)
+- **Example (Ejemplo):** `2001::/32`
+
+## Summary (Resumen):
+
+- **FE80::/10** – Link-local addresses (direcciones locales de enlace).
+- **2000::/3** – Global Unicast (Unicast global enrutable en Internet).
+- **FC00::/7** – Unique Local Addresses (para redes privadas).
+- **FF00::/8** – Multicast (para comunicación uno a muchos).
+- **::1/128** – Loopback (para referirse al propio dispositivo).
+- **::/128** – Unspecified (dirección no especificada).
+- **::FFFF:0:0/96** – IPv4-mapped (direcciones IPv4 representadas en IPv6).
+- **2001:0DB8::/32** – Documentation addresses (para documentación).
+- **2002::/16** – 6to4 (para transición de IPv4 a IPv6).
+- **2001::/32** – Teredo (para IPv6 a través de NAT en IPv4).
+
+Each pattern has a specific role in organizing and structuring IPv6 networks, helping facilitate both local and global communication.
+(Cada patrón tiene un rol específico en la organización y estructuración de las redes IPv6, lo que facilita tanto la comunicación local como global.)
