@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patrones de Direcciones IPv6</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .content-section {
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .title {
+            margin-bottom: 20px;
+        }
+        .code-block {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Patrones de Direcciones IPv6</h1>
+        <p class="lead text-center">Una guía rápida sobre los principales tipos de direcciones IPv6 y sus prefijos asociados.</p>
+        
+        <div class="content-section">
+            <h2 class="title">1. Direcciones Unicast Globales (Global Unicast)</h2>
+            <p><strong>Prefijo:</strong> <span class="code-block">2000::/3</span></p>
+            <p><strong>Rango:</strong> Desde <span class="code-block">2000::</span> hasta <span class="code-block">3FFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF</span></p>
+            <p><strong>Descripción:</strong> Estas son direcciones asignadas globalmente y pueden enrutar a través de Internet. Son el equivalente a las direcciones públicas en IPv4.</p>
+            <p><strong>Ejemplo:</strong> <span class="code-block">2001:0db8::1</span></p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="title">2. Direcciones Unicast Locales (Unique Local)</h2>
+            <p><strong>Prefijo:</strong> <span class="code-block">FC00::/7</span></p>
+            <p><strong>Descripción:</strong> Estas direcciones son para uso en redes privadas y no deben enrutarse en Internet. Equivalentes a las direcciones privadas de IPv4 como 192.168.x.x.</p>
+            <p><strong>Ejemplo:</strong> <span class="code-block">FD00:1234::1</span></p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="title">3. Direcciones Multicast</h2>
+            <p><strong>Prefijo:</strong> <span class="code-block">FF00::/8</span></p>
+            <p><strong>Descripción:</strong> Utilizadas para enviar paquetes a múltiples destinos simultáneamente. Ideales para la transmisión de video en vivo o protocolos de descubrimiento de servicios.</p>
+            <p><strong>Ejemplo:</strong> <span class="code-block">FF02::1</span> (Todos los nodos en el enlace local)</p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="title">4. Direcciones Anycast</h2>
+            <p><strong>Descripción:</strong> Estas son direcciones unicast asignadas a múltiples interfaces. Los paquetes enviados a una dirección Anycast se entregan a la interfaz más cercana.</p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="title">5. Dirección de Loopback</h2>
+            <p><strong>Prefijo:</strong> <span class="code-block">::1/128</span></p>
+            <p><strong>Descripción:</strong> Se utiliza para referirse al dispositivo local. Es equivalente a 127.0.0.1 en IPv4.</p>
+            <p><strong>Ejemplo:</strong> <span class="code-block">::1</span></p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="title">6. Dirección No Especificada</h2>
+            <p><strong>Prefijo:</strong> <span class="code-block">::/128</span></p>
+            <p><strong>Descripción:</strong> Utilizada cuando un nodo no conoce su propia dirección. Común durante la autoconfiguración.</p>
+            <p><strong>Ejemplo:</strong> <span class="code-block">::</span></p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="title">7. Direcciones IPv6 Mapeadas a IPv4</h2>
+            <p><strong>Prefijo:</strong> <span class="code-block">::FFFF:0:0/96</span></p>
+            <p><strong>Descripción:</strong> Estas direcciones permiten representar una dirección IPv4 dentro de una dirección IPv6, habilitando la interoperabilidad entre ambos protocolos.</p>
+            <p><strong>Ejemplo:</strong> <span class="code-block">::FFFF:192.168.1.1</span></p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="title">8. Direcciones para Documentación</h2>
+            <p><strong>Prefijo:</strong> <span class="code-block">2001:0DB8::/32</span></p>
+            <p><strong>Descripción:</strong> Este bloque de direcciones se reserva para ejemplos y documentación técnica, no para redes reales.</p>
+            <p><strong>Ejemplo:</strong> <span class="code-block">2001:0DB8::1</span></p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="title">9. Direcciones 6to4</h2>
+            <p><strong>Prefijo:</strong> <span class="code-block">2002::/16</span></p>
+            <p><strong>Descripción:</strong> Estas direcciones son utilizadas en el mecanismo de transición 6to4, permitiendo a hosts IPv4 comunicarse a través de redes IPv6.</p>
+            <p><strong>Ejemplo:</strong> <span class="code-block">2002:c0a8:0101::1</span> (Representa la dirección IPv4 192.168.1.1)</p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="title">10. Direcciones Teredo</h2>
+            <p><strong>Prefijo:</strong> <span class="code-block">2001::/32</span></p>
+            <p><strong>Descripción:</strong> Utilizadas por el protocolo Teredo para permitir la comunicación IPv6 a través de una red IPv4 con NAT.</p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="title">Resumen</h2>
+            <ul>
+                <li><strong>FE80::/10</strong> – Direcciones locales de enlace (Link-local)</li>
+                <li><strong>2000::/3</strong> – Direcciones Unicast Globales (Global Unicast)</li>
+                <li><strong>FC00::/7</strong> – Direcciones locales únicas (Unique Local)</li>
+                <li><strong>FF00::/8</strong> – Direcciones Multicast</li>
+                <li><strong>::1/128</strong> – Dirección de Loopback</li>
+                <li><strong>::/128</strong> – Dirección no especificada</li>
+                <li><strong>::FFFF:0:0/96</strong> – Direcciones IPv4 mapeadas en IPv6</li>
+                <li><strong>2001:0DB8::/32</strong> – Direcciones para documentación</li>
+                <li><strong>2002::/16</strong> – Direcciones 6to4</li>
+                <li><strong>2001::/32</strong> – Direcciones Teredo</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
