@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio IPv6</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .code-block {
+            font-family: monospace;
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1 class="mb-4">Ejercicio 2 - IPv6</h1>
+
+        <h4>Definición del problema:</h4>
+        <p>Indique cuál de las siguientes expresiones de dirección IPv6 es incorrecta, y explique por qué es incorrecta:</p>
+
+        <ul>
+            <li>a) <span class="code-block">2001:0DB8:F181:0000:0000:0000:0000:0000</span></li>
+            <li>b) <span class="code-block">2001:0DB8:F181:0:0:0:0:0</span></li>
+            <li>c) <span class="code-block">2001:DB8:F181:0:0:0:0:0</span></li>
+            <li>d) <span class="code-block">2001:DB8:F181::0:0:0:0</span></li>
+            <li>e) <span class="code-block">2001:DB8:F181::0:0:0</span></li>
+            <li>f) <span class="code-block">2001:DB8:F181::0:0</span></li>
+            <li>g) <span class="code-block">2001:DB8:F181::</span></li>
+        </ul>
+
+        <h4>Respuestas y explicaciones:</h4>
+        <h4>Indique cuál de las siguientes expresiones de dirección IPv6 es incorrecta, explique el por qué:</h4>
+
+        <ul>
+            <li>
+                a) <span class="code-block">2001:0DB8:F181:0000:0000:0000:0000:0000</span> 
+                <span class="correct">(Correcta)</span>
+                <p>Esta es una dirección completa de 128 bits, con todos los grupos de 16 bits presentes, por lo tanto es válida.</p>
+            </li>
+
+            <li>
+                b) <span class="code-block">2001:0DB8:F181:0:0:0:0:0</span> 
+                <span class="correct">(Correcta)</span>
+                <p>Esta dirección está abreviada correctamente utilizando ceros, y no se usa `::` para compactar. También es válida.</p>
+            </li>
+
+            <li>
+                c) <span class="code-block">2001:DB8:F181:0:0:0:0:0</span> 
+                <span class="correct">(Correcta)</span>
+                <p>Esta es similar a la opción b), con una abreviación válida de ceros en el formato correcto.</p>
+            </li>
+
+            <li>
+                d) <span class="code-block">2001:DB8:F181::0:0:0:0</span> 
+                <span class="correct">(Correcta)</span>
+                <p>El uso de `::` está correctamente empleado para representar múltiples ceros consecutivos. Es válida.</p>
+            </li>
+
+            <li>
+                e) <span class="code-block">2001:DB8:F181::0:0:0</span> 
+                <span class="correct">(Correcta)</span>
+                <p>Similar a la opción d), el `::` se utiliza adecuadamente para compactar los ceros consecutivos. Es válida.</p>
+            </li>
+
+            <li>
+                f) <span class="code-block">2001:DB8:F181::0:0</span> 
+                <span class="correct">(Correcta)</span>
+                <p>Esta dirección usa correctamente el `::` para abreviar los ceros consecutivos y es válida.</p>
+            </li>
+
+            <li>
+                g) <span class="code-block">2001:DB8:F181::</span> 
+                <span class="incorrect">(Incorrecta)</span>
+                <p>Esta es incorrecta. Aunque se usa `::` para abreviar ceros consecutivos, faltan al menos 16 bits (un grupo de 16 bits) para que la dirección tenga 128 bits en total, por lo que no es válida.</p>
+            </li>
+        </ul>
+
+        <h4 class="mt-4">Explicación General:</h4>
+        <p>La opción <strong>g)</strong> es incorrecta porque no tiene el número completo de bloques que se necesitan para formar una dirección IPv6 válida. Al usar <code>::</code>, se deben rellenar los ceros restantes, pero aún así la dirección debe tener 128 bits en total. En esta dirección faltan al menos 16 bits (un bloque) para que sea válida.</p>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
